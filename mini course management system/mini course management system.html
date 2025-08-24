@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Serges Uche - Student Portal</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; }
+    header { background: #333; color: #fff; padding: 15px; font-size: 24px; }
+    button { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; }
+    .hidden { display: none; }
+    .course { margin: 15px auto; padding: 15px; background: white; border-radius: 8px; width: 70%; }
+    .tutorials { margin-top: 15px; background: #eee; padding: 10px; border-radius: 5px; }
+    a { display: block; margin: 5px; text-decoration: none; color: blue; }
+  </style>
+</head>
+<body>
+  <header>John Serges Uche - Student Portal</header>
+  
+  <h2>Available Courses</h2>
+  
+  <!-- Course 1 -->
+  <div class="course">
+    <p><b>Web Development</b></p>
+    <button onclick="accessTutorials('web')">Access Tutorials</button>
+    <div id="web-tutorials" class="tutorials hidden">
+      <h3>Handouts</h3>
+      <a href="handouts/webdev.pdf" target="_blank">📄 Web Development Handout</a>
+      <h3>Videos</h3>
+      <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">🎥 HTML Basics</a>
+      <a href="https://www.youtube.com/watch?v=Zftx68K-1D4" target="_blank">🎥 CSS Basics</a>
+    </div>
+  </div>
+  
+  <!-- Course 2 -->
+  <div class="course">
+    <p><b>Python Programming</b></p>
+    <button onclick="accessTutorials('python')">Access Tutorials</button>
+    <div id="python-tutorials" class="tutorials hidden">
+      <h3>Handouts</h3>
+      <a href="handouts/python.pdf" target="_blank">📄 Python Programming Handout</a>
+      <h3>Videos</h3>
+      <a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank">🎥 Python Crash Course</a>
+    </div>
+  </div>
+  
+  <!-- Course 3 -->
+  <div class="course">
+    <p><b>Cybersecurity Basics</b></p>
+    <button onclick="accessTutorials('cyber')">Access Tutorials</button>
+    <div id="cyber-tutorials" class="tutorials hidden">
+      <h3>Handouts</h3>
+      <a href="handouts/cybersecurity.pdf" target="_blank">📄 Cybersecurity Handout</a>
+      <h3>Videos</h3>
+      <a href="https://www.youtube.com/watch?v=inWWhr5tnEA" target="_blank">🎥 Cybersecurity Basics</a>
+    </div>
+  </div>
+  
+  <!-- Assignment Submission -->
+  <div id="assignment">
+    <h2>Submit Assignment</h2>
+    <input type="file" id="fileInput"><br><br>
+    <button onclick="submitAssignment()">Upload</button>
+  </div>
+  
+  <script>
+    function accessTutorials(course) {
+      let pass = prompt("Enter password to access tutorials:");
+      if (pass === "12345") { // change this password to your own
+        document.getElementById(course + "-tutorials").classList.toggle('hidden');
+      } else {
+        alert("Wrong password!");
+      }
+    }
+
+    function submitAssignment() {
+      let file = document.getElementById('fileInput').files[0];
+      if (file) {
+        alert("Assignment submitted: " + file.name);
+      } else {
+        alert("Please select a file first!");
+      }
+    }
+  </script>
+</body>
+</html>
